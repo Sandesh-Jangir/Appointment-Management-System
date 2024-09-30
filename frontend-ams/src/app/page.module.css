@@ -1,0 +1,15 @@
+
+.navbar{
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    text-align: center;
+    background: #5833C8;
+    border-radius: 11px;
+}
+.navbar span{
+    color: white;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: 0.7px;
+}
