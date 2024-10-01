@@ -1,5 +1,4 @@
-
-.navbar{
+.navbar {
     margin: 20px;
     padding: 20px;
     display: flex;
@@ -7,9 +6,45 @@
     background: #5833C8;
     border-radius: 11px;
 }
-.navbar span{
-    color: white;
+
+.navbar span {
+    color: #ECEFFF;
     font-weight: 700;
     font-size: 19px;
     letter-spacing: 0.7px;
+}
+
+.landingContent {
+    margin: 80px;
+    display: flex;
+    align-items: flex-end;
+    gap: 80px;
+}
+
+.landingContent h1 {
+    font-size: 50px;
+    color: #ECEFFF;
+    font-weight: 200;
+    margin-bottom: 50px;
+}
+
+.landingContent h1 span {
+    font-weight: 700;
+}
+
+.landingContent h2 {
+    font-weight: 500;
+    color: #ECEFFF;
+}
+
+.book,
+.book a {
+    color: #ECEFFF;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.book a {
+    text-decoration: none;
+    font-style: italic;
 }
