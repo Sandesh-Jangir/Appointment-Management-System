@@ -1,6 +1,7 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const app = express()
+import { Appointment } from './models/Appointements.js'
+import e from 'express'
+import mongoose from 'mongoose'
+const app = e()
 const port = 5500
 
 // connecting to mongo-db
@@ -9,25 +10,22 @@ async function connectDb(){
   console.log("connected to database ...")
 }connectDb();
 
-const appointmentSchema = new mongoose.Schema({
-  clientName : String,
-  date: Date,
-  subject: String
+// Endpoint to schedule a meeting.
+app.get('/reqappointment', (req, res) => {
+  const meeting  = new Appointment({
+    clientName: "Sandesh Jangir",
+    date: 20-10-24,
+    subject: "Self improvement session.",
+    id: 1
+  })
+  meeting.save();
+  res.send("Created Successfully")
 })
 
-const Appointment = mongoose.model('admin', appointmentSchema);
-
-async function createMeeting(name, date, subject) {
-  const meeting = new Appointment({
-    clientName: name,
-    date: date,
-    subject: subject
-  });
-  await meeting.save();
-}
-createMeeting("sandesh jangir", 20-10-24, "business growth"); // example meeting request
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+// Endpoint to fetch all of the scheduled meeting.
+app.get('/fetchall', async (req, res)=>{
+  const allMeetings = await Appointment.find({});
+  res.send(allMeetings)
 })
 
 app.listen(port, () => {
