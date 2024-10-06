@@ -1,8 +1,11 @@
 import { Appointment } from './models/Appointements.js'
 import e from 'express'
 import mongoose from 'mongoose'
+import cors from 'cors'
+
 const app = e()
 const port = 5500
+app.use(cors());
 
 // connecting to mongo-db
 async function connectDb(){
