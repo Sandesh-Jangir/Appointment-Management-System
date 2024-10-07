@@ -1,11 +1,14 @@
 import { Appointment } from './models/Appointements.js'
-import e from 'express'
+import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
+import bodyParser from 'body-parser'
 
-const app = e()
+const app = express()
 const port = 5500
-app.use(cors());
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); 
 
 // connecting to mongo-db
 async function connectDb(){
@@ -13,6 +16,7 @@ async function connectDb(){
   console.log("connected to database ...")
 }connectDb();
 
+app.use(cors());
 // Endpoint to schedule a meeting.
 app.get('/reqappointment', (req, res) => {
   const meeting  = new Appointment({
@@ -31,6 +35,11 @@ app.get('/fetchall', async (req, res)=>{
   res.send(allMeetings)
 })
 
+app.post('/authadmin', (req, res)=>{
+  const data = req.body.passkey
+  console.log(data)
+  res.send(data)
+})
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
