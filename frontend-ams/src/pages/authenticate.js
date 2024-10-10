@@ -22,7 +22,7 @@ export default function Auth(){
     const data = new FormData()
   
     // Turn our formData state into data we can use with a form submission
-  
+    console.log(formURL)
     // POST the data to the URL of the form
     fetch(formURL, {
       method: "POST",

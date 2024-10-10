@@ -4,9 +4,9 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 
 const app = express()
-const port = 5500
+const port = 5000
 
-app.use(express.urlencoded({ extended: true }));
+app.use(cors())
 app.use(express.json()); 
 
 // connecting to mongo-db
@@ -15,16 +15,6 @@ async function connectDb(){
   console.log("connected to database ...")
 }connectDb();
 
-app.use((req, res, next)=>{
-  res.append('Access-Control-Allow-Origin', ['http://localhost:3000']);
-  next();
-})
-
-const corsOptions = {
-  origin : ['http://localhost:3000']
-}
-
-app.use(cors(corsOptions));
 // Endpoint to schedule a meeting.
 app.get('/reqappointment', (req, res) => {
   const meeting  = new Appointment({
@@ -47,7 +37,9 @@ app.get('/fetchall', async (req, res)=>{
 app.post('/authadmin', (req, res)=>{
   const data = req.body.passkey
   console.log(data)
-  res.redirect('http://localhost:3000/')
+  req.set('Access-Control-Allow-Origin', 'https://localhost:3000/');
+  // res.status(301).redirect('http://localhost:3000/')
+  res.json(data)
 })
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
