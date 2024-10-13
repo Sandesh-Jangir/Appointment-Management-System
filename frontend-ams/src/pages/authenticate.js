@@ -1,3 +1,5 @@
+import { redirect } from 'next/dist/server/api-utils';
+import { permanentRedirect } from 'next/navigation';
 import React, { useState, FormEvent } from 'react'
 
 export default function Auth(){
@@ -14,34 +16,30 @@ export default function Auth(){
     }));
   }
   
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     // We don't want the page to refresh
     e.preventDefault()
-  console.log(formData)
     const formURL = e.target.action
     const data = new FormData()
-  
-    // Turn our formData state into data we can use with a form submission
-    console.log(formURL)
+
     // POST the data to the URL of the form
-    fetch(formURL, {
+    const request = new Request("http://localhost:5000/authadmin", {
       method: "POST",
-      body: {
-        passkey: "formData.passkey"
-      },
       headers: {
-        'accept': 'application/json',
+        'Content-Type': 'application/json',
       },
-    }).then((response)=> console.log(response))
-    .then((data) => {
-      setFormData({
-        passkey:""
-      })
+      body: JSON.stringify({passkey: formData.passkey})
     })
+    const response = await fetch(request);
+    if (response.status == 200){
+      console.log("Success")
+    }else if (response.status == 400){
+      console.log("Failed")
+    }
   }
     return(
         <div>
-            <form method="POST" action="http://localhost:5500/authadmin" onSubmit={submitForm}>
+            <form method="POST" action="http://localhost:5000/authadmin" onSubmit={submitForm}>
             <p>Please enter the passkey for verification :</p>
             <input type="password" name="passkey" onChange={handleInput} value={formData.passkey}/>
             <button type="submit">Submit</button>

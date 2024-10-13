@@ -2,12 +2,14 @@ import { Appointment } from './models/Appointements.js'
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
+import bodyParser from 'body-parser'
 
 const app = express()
 const port = 5000
 
 app.use(cors())
 app.use(express.json()); 
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // connecting to mongo-db
 async function connectDb(){
@@ -35,11 +37,11 @@ app.get('/fetchall', async (req, res)=>{
 
 // Endpoint to authenticate the user.
 app.post('/authadmin', (req, res)=>{
-  const data = req.body.passkey
-  console.log(data)
-  req.set('Access-Control-Allow-Origin', 'https://localhost:3000/');
-  // res.status(301).redirect('http://localhost:3000/')
-  res.json(data)
+  const enteredPasskey = req.body.passkey;
+  res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+  if (enteredPasskey == "mykey"){
+    res.sendStatus(200);
+  }else res.sendStatus(400)
 })
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
