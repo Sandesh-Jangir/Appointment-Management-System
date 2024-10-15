@@ -18,6 +18,8 @@ export default function ScheduleMeeting() {
                     <input/>
                     <label>Subject</label>
                     <textarea/>
+
+                    <button>Submit Request &rarr;</button>
                 </form>
 
                 <div className="calender"></div>

@@ -1,6 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap');
 
 container{
-    font-family: sans-serif, "Poppins";
+    font-family: "Poppins";
     display: flex;
+}
+.flexContainer{
+    margin: 30px;
+}
+form{
+    display: grid;
+    width: 40vw;
+    background-color: #ECEFFF;
+    padding: 20px;
+    border-radius: 11px;
+}
+form input, textarea{
+    margin-bottom: 30px;
+    padding: 5px 10px;
+    border: 1px solid #5833C8;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 20px;
+    outline: none;
+    color: #5833C8;
+    background-color:white;
+}
+textarea{
+    margin-bottom: 0;
+}
+form label{
+    font-weight: 200;
+    color: #ECEFFF;
+    font-size: 18px;
+    padding: 10px;
+    width: fit-content;
+    background-color: #5833C8;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+form button{
+    font-family: "Poppins";
+
+    width: fit-content;
+    padding: 10px;
+    font-weight: 200;
+    font-size: 18px;
+    background-color: #5833C8;
+    color: #ECEFFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
 }
