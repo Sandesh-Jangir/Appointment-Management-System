@@ -1,8 +1,10 @@
 import { redirect } from 'next/dist/server/api-utils';
 import { permanentRedirect } from 'next/navigation';
+import { useRouter } from 'next/router';
 import React, { useState, FormEvent } from 'react'
 
 export default function Auth(){
+  const router = useRouter()
   const [formData, setFormData] = useState({
     passkey: ""
   });
@@ -32,7 +34,7 @@ export default function Auth(){
     })
     const response = await fetch(request);
     if (response.status == 200){
-      console.log("Success")
+      router.push('/dashboard')
     }else if (response.status == 400){
       console.log("Failed")
     }
