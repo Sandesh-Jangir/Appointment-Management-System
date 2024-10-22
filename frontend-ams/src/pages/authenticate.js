@@ -1,7 +1,7 @@
-import { redirect } from 'next/dist/server/api-utils';
-import { permanentRedirect } from 'next/navigation';
+
 import { useRouter } from 'next/router';
-import React, { useState, FormEvent } from 'react'
+import React, { useState} from 'react'
+import styles from "../styles/page.authenticate.css"
 
 export default function Auth(){
   const router = useRouter()
@@ -21,7 +21,6 @@ export default function Auth(){
   const submitForm = async (e) => {
     // We don't want the page to refresh
     e.preventDefault()
-    const formURL = e.target.action
     const data = new FormData()
 
     // POST the data to the URL of the form
@@ -40,12 +39,12 @@ export default function Auth(){
     }
   }
     return(
-        <div>
+        <container>
             <form method="POST" action="http://localhost:5000/authadmin" onSubmit={submitForm}>
-            <p>Please enter the passkey for verification :</p>
+            <p>Please <span> enter the passkey </span> for verification :</p>
             <input type="password" name="passkey" onChange={handleInput} value={formData.passkey}/>
             <button type="submit">Submit</button>
             </form>
-        </div>
+        </container>
     )
 }
