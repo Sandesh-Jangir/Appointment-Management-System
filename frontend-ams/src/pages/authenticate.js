@@ -2,6 +2,7 @@
 import { useRouter } from 'next/router';
 import React, { useState} from 'react'
 import styles from "../styles/page.authenticate.css"
+import Error from '@/components/error';
 
 export default function Auth(){
   const router = useRouter()
@@ -35,16 +36,20 @@ export default function Auth(){
     if (response.status == 200){
       router.push('/dashboard')
     }else if (response.status == 400){
-      console.log("Failed")
+      document.getElementById("error").style.display = "flex";
     }
   }
     return(
+      <div>
         <container>
             <form method="POST" action="http://localhost:5000/authadmin" onSubmit={submitForm}>
             <p>Please <span> enter the passkey </span> for verification :</p>
             <input type="password" name="passkey" onChange={handleInput} value={formData.passkey}/>
             <button type="submit">Submit</button>
             </form>
+
         </container>
+            <Error message="Invalid Credentials"></Error>
+        </div>
     )
 }

@@ -1,0 +1,30 @@
+.error{
+    height: 40px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+.error p, a{
+    font-weight: 400;
+    color: red !important;
+    font-size: 15px;
+    text-decoration: none;
+}
+.error a{
+    position:absolute;
+    right: 20px;
+}
+.backgroundbox{
+    width: inherit;
+    height: inherit;
+    background-color: red;
+    opacity: 40%;
+    position: absolute;
+    z-index: -1;
+}
