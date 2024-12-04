@@ -5,7 +5,7 @@ export default function ScheduleMeeting() {
     const getData = async ()=>{
         let data = await fetch('http://localhost:5000/fetchall')
         let res = await data.json();
-        console.log(res)
+        console.log(res[1].date)
     };getData();
     return (
         <container>

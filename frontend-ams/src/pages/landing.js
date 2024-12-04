@@ -1,4 +1,4 @@
-import styles from "../app/page.module.css";
+import styles from "../styles/page.module.css";
 
 export default function Landing() {
     return (
@@ -11,7 +11,7 @@ export default function Landing() {
                     <h1>Searching for <span>Best Mentors</span> in your field ?</h1>
                 </div>
                 <div className={styles.book}>
-                    <a href="#">Click here</a> to book your very own mentoring session now.
+                    <a href="/meet">Click here</a> to book your very own mentoring session now.
                 </div>
             </div>
         </div>

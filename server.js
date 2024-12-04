@@ -21,7 +21,7 @@ async function connectDb(){
 app.get('/reqappointment', (req, res) => {
   const meeting  = new Appointment({
     clientName: "Sandesh Jangir",
-    date: 20-10-24,
+    date: new Date("12-12-2024"),
     subject: "Self improvement session.",
     id: 1
   })

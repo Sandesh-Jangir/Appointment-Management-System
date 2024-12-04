@@ -2,7 +2,6 @@ import { useRouter } from "next/router"
 import { useState } from "react";
 
 export default function  Admin() {
-    // const [meetings, setMeetings] = useState([])
     var meetings=[]
     const listAppointment = async ()=>{
         const response = await fetch('http://localhost:5000/fetchall');

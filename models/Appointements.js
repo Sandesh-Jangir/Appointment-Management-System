@@ -2,7 +2,10 @@ import mongoose from "mongoose";
 
 const appointmentSchema = new mongoose.Schema({
     clientName : String,
-    date: Date,
+    date: {
+        type: Date,
+        default: Date.now()
+    },
     subject: String,
     id: Number
 })
