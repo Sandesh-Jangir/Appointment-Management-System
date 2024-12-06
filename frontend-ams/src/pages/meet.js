@@ -1,12 +1,16 @@
+import { useEffect, useState } from "react";
 import styles from "../styles/page.meeting.css";
 export default function ScheduleMeeting() {
-
+    const [Meetings, setMeetings] = useState([])
     // Sample function to fetch data from the backend api.
     const getData = async ()=>{
         let data = await fetch('http://localhost:5000/fetchall')
         let res = await data.json();
-        console.log(res[1].date)
-    };getData();
+        setMeetings(res);
+    };
+    useEffect(()=>{
+        getData();
+    }, [])
     return (
         <container>
             <title>Schedule Meeting</title>
@@ -22,7 +26,11 @@ export default function ScheduleMeeting() {
                     <button>Submit Request &rarr;</button>
                 </form>
 
-                <div className="calender"></div>
+                <div className="calender">
+                    {Meetings.map((meeting)=>{
+                        console.log(meeting.date)
+                    })}
+                </div>
             </div>
 
         </container>
