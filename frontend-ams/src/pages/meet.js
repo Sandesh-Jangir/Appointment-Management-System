@@ -11,6 +11,11 @@ export default function ScheduleMeeting() {
     useEffect(()=>{
         getData();
     }, [])
+    Meetings.map((meeting)=>{
+                    let date = new Date(meeting.date)
+                    let day = date.getDate()
+                    document.getElementById("calendar").innerHTML += `<div class="box">${day}</div>`
+    })
     return (
         <container>
             <title>Schedule Meeting</title>
@@ -26,11 +31,9 @@ export default function ScheduleMeeting() {
                     <button>Submit Request &rarr;</button>
                 </form>
 
-                <div className="calender">
-                    {Meetings.map((meeting)=>{
-                        console.log(meeting.date)
-                    })}
-                </div>
+            </div>
+            <div className="calender" id="calendar">
+                
             </div>
 
         </container>
