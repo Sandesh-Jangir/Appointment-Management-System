@@ -38,7 +38,7 @@ export default function ScheduleMeeting() {
     Meetings.map((meeting)=>{
         let meetDay = new Date(meeting.date)
         let meetDate = meetDay.getDate()
-        if (meetDate == res[i].date) res[i].occupied = true;
+        if (meetDate == meeting.date) meeting.occupied = true;
         i++;
     })
     Meetings.map((meeting)=>{
