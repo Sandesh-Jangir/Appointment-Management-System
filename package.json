@@ -1,0 +1,26 @@
+{
+  "name": "appointment-management-system",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Sandesh-Jangir/Appointment-Management-System#readme",
+  "bugs": {
+    "url": "https://github.com/Sandesh-Jangir/Appointment-Management-System/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sandesh-Jangir/Appointment-Management-System.git"
+  },
+  "license": "ISC",
+  "author": "Sandesh Jangir",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14",
+    "pg": "^8.23.0"
+  }
+}
